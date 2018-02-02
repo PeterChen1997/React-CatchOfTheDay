@@ -17,8 +17,10 @@ class App extends React.Component {
 
         this.addFish = this.addFish.bind(this)
         this.updateFish = this.updateFish.bind(this)
+        this.deleteFish = this.deleteFish.bind(this)
         this.loadSamples = this.loadSamples.bind(this)
         this.addToOrder = this.addToOrder.bind(this)
+        this.deleteOrder = this.deleteOrder.bind(this)
     }
 
     componentWillMount() {
@@ -62,13 +64,24 @@ class App extends React.Component {
     updateFish(key, updatedFish) {
         const fishes = {...this.state.fishes}
         fishes[key] = updatedFish
-        console.log(fishes)
+        this.setState({ fishes })
+    }
+
+    deleteFish(key) {
+        const fishes = {...this.state.fishes}
+        fishes[key] = null
         this.setState({ fishes })
     }
 
     addToOrder(index) {
         const order = this.state.order
         order[index] = order[index] + 1 || 1
+        this.setState({ order })
+    }
+
+    deleteOrder(key) {
+        const order = {...this.state.order}
+        delete order[key]
         this.setState({ order })
     }
 
@@ -84,12 +97,17 @@ class App extends React.Component {
                         }
                     </ul>
                 </div>
-                <Order order={this.state.order} fishes={this.state.fishes}/>
+                <Order
+                    order={this.state.order}
+                    fishes={this.state.fishes}
+                    deleteOrder={this.deleteOrder}
+                />
                 <Inventory
                     addFish={this.addFish}
                     loadSamples={this.loadSamples}
                     fishes={this.state.fishes}
                     updateFish={this.updateFish}
+                    deleteFish={this.deleteFish}
                 />
             </div>
         )
