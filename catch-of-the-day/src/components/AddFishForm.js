@@ -21,8 +21,8 @@ class AddFishForm extends React.Component {
                 <input required ref={(input) => this.name = input} type="text" placeholder="Fish Name" />
                 <input required ref={(input) => this.price = input} type="text" placeholder="Fish Price" />
                 <select ref={(input) => this.status = input}>
-                    <option value="avaliable">Fresh !</option>
-                    <option value="unavaliable">Sold Out !</option>
+                    <option value="available">Fresh !</option>
+                    <option value="unavailable">Sold Out !</option>
                 </select>
                 <textarea required ref={(input) => this.desc = input} type="text" placeholder="Fish Desc" ></textarea>
                 <input required ref={(input) => this.image = input} type="text" placeholder="Fish Image" />
