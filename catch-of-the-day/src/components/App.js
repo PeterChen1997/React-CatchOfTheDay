@@ -26,10 +26,22 @@ class App extends React.Component {
             context: this,
             state: 'fishes'
         })
+
+        // judge is there a local state
+        const localState = localStorage.getItem(`order-${this.props.params.storeId}`)
+        if(localState) {
+            this.setState({
+                order: JSON.parse(localState)
+            })
+        }
     }
 
     componentWillUnmount() {
         base.removeBinding(this.ref)
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        localStorage.setItem(`order-${this.props.params.storeId}`, JSON.stringify(nextState.order))
     }
 
     loadSamples() {
