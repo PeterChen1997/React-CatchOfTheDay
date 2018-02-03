@@ -6,16 +6,18 @@ import AddFishForm from './AddFishForm'
 class Inventory extends React.Component {
     constructor() {
         super()
-        this.renderInventory = this.renderInventory.bind(this)
+        // this.renderInventory = this.renderInventory.bind(this)
         this.authenticate = this.authenticate.bind(this)
         this.authHandler = this.authHandler.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.renderLogin = this.renderLogin.bind(this)
         this.logout = this.logout.bind(this)
-        this.state = {
-            uid: null,
-            owner: null
-        }
+        
+    }
+
+    state = {
+        uid: null,
+        owner: null
     }
 
     componentDidMount() {
@@ -79,7 +81,7 @@ class Inventory extends React.Component {
         )
     }
 
-    renderInventory(key) {
+    renderInventory = (key) => {
         const fish = this.props.fishes[key]
 
         return (
@@ -121,15 +123,15 @@ class Inventory extends React.Component {
             </div>
         )
     }
-}
 
-Inventory.proptypes = {
-    fishes: React.PropTypes.object.isRequired,
-    updateFish: React.PropTypes.func.isRequired,
-    deleteFish: React.PropTypes.func.isRequired,
-    addFish: React.PropTypes.func.isRequired,
-    loadSamples: React.PropTypes.func.isRequired,
-    storeId: React.PropTypes.string.isRequired
+    static proptypes = {
+        fishes: React.PropTypes.object.isRequired,
+        updateFish: React.PropTypes.func.isRequired,
+        deleteFish: React.PropTypes.func.isRequired,
+        addFish: React.PropTypes.func.isRequired,
+        loadSamples: React.PropTypes.func.isRequired,
+        storeId: React.PropTypes.string.isRequired
+    }
 }
 
 export default Inventory
