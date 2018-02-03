@@ -68,4 +68,10 @@ class Order extends React.Component {
     }
 }
 
+Order.proptypes = {
+    order: React.PropTypes.object.isRequired,
+    fish: React.PropTypes.object.isRequired,
+    deleteOrder: React.PropTypes.func.isRequired
+}
+
 export default Order
