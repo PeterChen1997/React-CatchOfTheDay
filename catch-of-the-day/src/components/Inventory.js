@@ -64,7 +64,7 @@ class Inventory extends React.Component {
 
             this.setState({
                 uid: authData.user.uid,
-                owner: data.owner || <authData className="user uid"></authData>
+                owner: data.owner || authData.user.uid
             })
         })
     }
