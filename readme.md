@@ -1,4 +1,4 @@
-# React Learn Files
+# React Learning Files
 
 Here is the React Learning route from [Wes Bos's Course](https://reactforbeginners.com/). It's really a wonderful course and really appreciate it.
 
